@@ -1,0 +1,1191 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CambioDeTecho — Cambio y reparación de techumbre en Chile</title>
+<meta name="description" content="¿Filtraciones o una techumbre que ya cumplió su ciclo? Cambiamos y reparamos techumbre en Chile, cuidando las terminaciones." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#1c6299" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#131f26" media="(prefers-color-scheme: dark)" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="es_CL" />
+<meta property="og:site_name" content="CambioDeTecho" />
+<meta property="og:title" content="CambioDeTecho — Cambio y reparación de techumbre en Chile" />
+<meta property="og:description" content="¿Filtraciones o una techumbre que ya cumplió su ciclo? Cambiamos y reparamos techumbre en Chile, cuidando las terminaciones." />
+<meta property="og:image" content="images/hero/casa-techumbre-cielo-despejado.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="CambioDeTecho — Cambio y reparación de techumbre en Chile" />
+<meta name="twitter:description" content="¿Filtraciones o una techumbre que ya cumplió su ciclo? Cambiamos y reparamos techumbre en Chile, cuidando las terminaciones." />
+<link rel="icon" href="images/icon.svg" type="image/svg+xml" />
+<link rel="alternate icon" href="images/favicon.ico" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Manrope:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ================================================================== *
+ * Reset (equivalent to Tailwind Preflight, trimmed to what's used)
+ * ================================================================== */
+*, *::before, *::after { box-sizing: border-box; border: 0 solid; margin: 0; padding: 0; }
+html { line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+body { line-height: inherit; }
+img, svg { display: block; max-width: 100%; height: auto; }
+[hidden] { display: none !important; }
+button, input, textarea { font: inherit; color: inherit; background: transparent; }
+button { cursor: pointer; text-align: inherit; }
+input, textarea { outline: none; }
+a { color: inherit; text-decoration: inherit; }
+ul, ol { list-style: none; }
+h1, h2, h3, h4 { font-size: inherit; font-weight: inherit; }
+:focus:not(:focus-visible) { outline: none; }
+
+/* ================================================================== *
+ * Design tokens — see DESIGN.md in the original project for the story.
+ * Warm off-white ground + a clear sky-blue family + blue charcoals.
+ * ================================================================== */
+:root {
+  --paper: #f7f4ef;
+  --paper-raised: #fcfbf7;
+  --sky-tint: #eef6fc;
+  --sky-pale: #dfeefa;
+  --sky-light: #a3ccea;
+  --sky-mid: #7cbde6;
+  --sky: #2478b8;
+  --sky-strong: #1c6299;
+  --sky-deep: #154e7c;
+  --charcoal: #1a2932;
+  --charcoal-deep: #131f26;
+  --ink: #1c262c;
+  --ink-soft: #58656c;
+  --line: #e4ddd0;
+  --chalk: #eef2f4;
+  --chalk-soft: #97a6ad;
+  --danger-soft: #f0cccc;
+  --radius: 3px;
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --font-sans: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Type scale — mobile/tablet. Steps up from `lg` (64rem) below. */
+  --text-display: clamp(2.5rem, 1.8rem + 3.2vw, 4.75rem);
+  --text-display-lh: 1.05;
+  --text-display-ls: -0.035em;
+  --text-display-fw: 600;
+
+  --text-title: clamp(1.75rem, 1.45rem + 1.35vw, 2.5rem);
+  --text-title-lh: 1.15;
+  --text-title-ls: -0.02em;
+  --text-title-fw: 560;
+
+  --text-subhead: 1.125rem;
+  --text-subhead-lh: 1.35;
+  --text-subhead-ls: -0.01em;
+  --text-subhead-fw: 600;
+
+  --text-lead: clamp(1.15rem, 1.05rem + 0.45vw, 1.375rem);
+  --text-lead-lh: 1.5;
+
+  --text-body: 1rem;
+  --text-body-lh: 1.7;
+
+  --text-bodysm: 0.9375rem;
+  --text-bodysm-lh: 1.65;
+
+  --text-label: 0.75rem;
+  --text-label-lh: 1.4;
+  --text-label-ls: 0.15em;
+
+  --text-caption: 0.8125rem;
+  --text-caption-lh: 1.5;
+  --text-caption-ls: 0.01em;
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --text-display: clamp(3.75rem, 1.9rem + 3.7vw, 5.75rem);
+    --text-title: clamp(2.15rem, 1.35rem + 1.6vw, 2.9rem);
+    --text-subhead: 1.25rem;
+    --text-lead: 1.5rem;
+    --text-body: 1.125rem;
+    --text-bodysm: 1rem;
+    --text-label: 0.8125rem;
+    --text-caption: 0.875rem;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Base
+ * ------------------------------------------------------------------ */
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--text-body-lh);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, h4 { font-family: var(--font-sans); text-wrap: balance; }
+p { text-wrap: pretty; }
+section[id] { scroll-margin-top: 5.5rem; }
+:focus-visible { outline: 2px solid var(--sky-strong); outline-offset: 3px; border-radius: 1px; }
+::selection { background-color: var(--sky-light); color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: 1rem; top: -3rem; z-index: 60;
+  border-radius: 2px; background: var(--ink); color: #fff;
+  padding: 0.5rem 1rem; font-size: 0.875rem; transition: top 0.15s;
+}
+.skip-link:focus { top: 1rem; }
+
+/* Text-scale utility classes (mirror the original `text-*` tokens) */
+.text-display { font-family: var(--font-sans); font-size: var(--text-display); line-height: var(--text-display-lh); letter-spacing: var(--text-display-ls); font-weight: var(--text-display-fw); }
+.text-title { font-family: var(--font-sans); font-size: var(--text-title); line-height: var(--text-title-lh); letter-spacing: var(--text-title-ls); font-weight: var(--text-title-fw); }
+.text-subhead { font-size: var(--text-subhead); line-height: var(--text-subhead-lh); letter-spacing: var(--text-subhead-ls); font-weight: var(--text-subhead-fw); }
+.lead { font-family: var(--font-sans); font-weight: 400; font-size: var(--text-lead); line-height: var(--text-lead-lh); }
+.text-bodysm { font-size: var(--text-bodysm); line-height: var(--text-bodysm-lh); }
+.label { font-family: var(--font-mono); font-size: var(--text-label); line-height: var(--text-label-lh); letter-spacing: var(--text-label-ls); text-transform: uppercase; font-weight: 500; display: block; }
+.caption { font-family: var(--font-mono); font-size: var(--text-caption); line-height: var(--text-caption-lh); letter-spacing: var(--text-caption-ls); }
+.accent-em { font-style: italic; font-weight: 500; }
+.tone-ink { color: var(--ink); }
+.tone-ink-soft { color: var(--ink-soft); }
+.tone-chalk { color: var(--chalk); }
+
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Scroll reveal — visible by default; JS hides below-fold blocks pre-paint */
+.reveal-hidden { opacity: 0; }
+.reveal-in { animation: reveal-in 0.7s var(--ease-soft) both; }
+@keyframes reveal-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-hidden { opacity: 1; }
+  .reveal-in { animation: none; }
+}
+
+/* ------------------------------------------------------------------ *
+ * Layout helpers
+ * ------------------------------------------------------------------ */
+.container { margin-inline: auto; width: 100%; max-width: 82rem; padding-inline: 1.5rem; }
+@media (min-width: 48rem) { .container { padding-inline: 2.5rem; } }
+@media (min-width: 64rem) { .container { padding-inline: 4rem; } }
+
+/* ------------------------------------------------------------------ *
+ * Buttons
+ * ------------------------------------------------------------------ */
+.btn {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.625rem;
+  border-radius: 3px; font-family: var(--font-sans);
+  padding: 0.875rem 1.75rem; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.01em;
+  transition: transform 0.2s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out, color 0.2s ease-out;
+}
+.btn:disabled { cursor: not-allowed; opacity: 0.6; }
+.btn__arrow { transition: transform 0.2s ease-out; }
+.btn:hover .btn__arrow { transform: translateX(2px); }
+@media (min-width: 64rem) { .btn { gap: 0.75rem; padding: 1rem 2rem; font-size: 1rem; } }
+
+.btn--primary { background: var(--sky-strong); color: var(--chalk); box-shadow: 0 1px 2px rgba(20, 25, 28, 0.16); }
+.btn--primary:hover:not(:disabled) { background: var(--sky-deep); transform: translateY(-0.125rem); box-shadow: 0 12px 26px -10px rgba(44, 73, 89, 0.55); }
+.btn--primary:focus-visible { outline-color: var(--sky-strong); }
+
+.btn--inverted { background: var(--paper); color: var(--sky-strong); }
+.btn--inverted:hover:not(:disabled) { background: var(--paper-raised); transform: translateY(-0.125rem); }
+.btn--inverted:focus-visible { outline-color: var(--chalk); }
+
+.btn--full { width: 100%; }
+@media (min-width: 40rem) { .btn--auto-sm { width: auto; } }
+
+/* Header's own Cotizar button is a touch smaller */
+.btn--header { padding: 0.625rem 1.25rem; font-size: 0.82rem; }
+@media (min-width: 64rem) { .btn--header { padding: 0.75rem 1.5rem; font-size: 0.9rem; } }
+
+/* ------------------------------------------------------------------ *
+ * Header
+ * ------------------------------------------------------------------ */
+.header {
+  position: sticky; top: 0; z-index: 50;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--sky-strong); color: var(--chalk);
+  transition: box-shadow 0.3s;
+}
+.header.is-scrolled { box-shadow: 0 2px 20px -6px rgba(21, 42, 61, 0.5); }
+.header__inner {
+  position: relative; z-index: 50; margin-inline: auto;
+  display: flex; height: 4.25rem; width: 100%; max-width: 82rem;
+  align-items: center; justify-content: space-between; gap: 1.5rem;
+  background: var(--sky-strong); padding-inline: 1.5rem;
+}
+@media (min-width: 48rem) { .header__inner { padding-inline: 2.5rem; } }
+@media (min-width: 64rem) { .header__inner { padding-inline: 4rem; } }
+
+.wordmark { display: inline-block; font-family: var(--font-sans); font-weight: 600; letter-spacing: -0.03em; font-size: 1.05rem; }
+@media (min-width: 64rem) { .wordmark { font-size: 1.2rem; } }
+.wordmark--onlight { color: var(--ink); }
+.wordmark--ondark { color: var(--chalk); }
+
+.header__logo-link { flex-shrink: 0; border-radius: 1px; }
+.header__logo-link:focus-visible { outline-offset: 4px; }
+
+.nav-desktop { display: none; }
+@media (min-width: 64rem) { .nav-desktop { display: block; } }
+.nav-desktop ul { display: flex; align-items: center; gap: 2.25rem; }
+.nav-link {
+  display: inline-block; padding-block: 0.25rem; font-size: var(--text-bodysm);
+  letter-spacing: -0.025em; color: var(--chalk);
+  text-underline-offset: 6px; text-decoration-thickness: 1px; text-decoration-line: none;
+  transition: text-decoration-color 0.2s;
+}
+.nav-link:hover, .nav-link.is-active { text-decoration-line: underline; }
+
+.header__right { display: flex; align-items: center; gap: 0.5rem; }
+.header__cta { display: none; }
+@media (min-width: 40rem) { .header__cta { display: block; } }
+
+.hamburger {
+  margin-right: -0.5rem; display: inline-flex; height: 2.75rem; width: 2.75rem;
+  align-items: center; justify-content: center; border-radius: 2px; color: var(--chalk);
+}
+@media (min-width: 64rem) { .hamburger { display: none; } }
+
+/* Mobile menu overlay */
+.mobile-menu {
+  position: fixed; inset: 0; top: 0; z-index: 40; display: none; flex-direction: column;
+  background: var(--sky-strong); color: var(--chalk);
+}
+.mobile-menu.is-open { display: flex; }
+@media (min-width: 64rem) { .mobile-menu { display: none !important; } }
+.mobile-menu__spacer { height: 4.25rem; flex-shrink: 0; }
+.mobile-menu__nav { display: flex; flex: 1 1 auto; flex-direction: column; justify-content: space-between; padding-inline: 1.5rem; padding-bottom: 2.5rem; padding-top: 2rem; }
+.mobile-menu__list { display: flex; flex-direction: column; border-top: 1px solid rgba(255, 255, 255, 0.15); }
+.mobile-menu__list li { border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
+.mobile-menu__link {
+  display: block; padding-block: 1.25rem; font-size: 1.375rem; font-weight: 560; line-height: 1.15;
+  letter-spacing: -0.025em; color: var(--chalk); text-underline-offset: 6px; text-decoration-thickness: 1px;
+}
+.mobile-menu__link.is-active { text-decoration: underline; }
+.mobile-menu__cta { margin-top: 2.5rem; display: block; width: 100%; }
+@media (min-width: 40rem) { .mobile-menu__cta { display: none; } }
+
+/* ------------------------------------------------------------------ *
+ * Hero
+ * ------------------------------------------------------------------ */
+.hero {
+  position: relative; display: flex; overflow: hidden; background: var(--paper);
+  min-height: 42rem; padding-top: 3rem; padding-bottom: 1.25rem;
+}
+@media (min-width: 40rem) {
+  .hero { min-height: 36rem; align-items: flex-start; padding-top: 4rem; padding-bottom: 5rem; }
+}
+@media (min-width: 64rem) {
+  .hero { min-height: 44rem; align-items: stretch; padding-top: 5rem; padding-bottom: 4rem; }
+}
+
+.hero__media { position: absolute; inset: 0; }
+.hero__media img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: 60% 38%;
+}
+@media (min-width: 64rem) { .hero__media img { object-position: center 63%; } }
+
+.hero__gradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, var(--paper) 0%, rgba(247, 244, 239, 0.5) 20%, rgba(247, 244, 239, 0) 50%);
+}
+@media (min-width: 40rem) {
+  .hero__gradient { background: linear-gradient(to bottom, var(--paper) 0%, rgba(247, 244, 239, 0.5) 15%, rgba(247, 244, 239, 0) 44%); }
+}
+@media (min-width: 64rem) {
+  .hero__gradient { background: linear-gradient(to bottom, var(--paper) 0%, rgba(247, 244, 239, 0.5) 17%, rgba(247, 244, 239, 0) 54%); }
+}
+
+.hero__container { position: relative; display: flex; width: 100%; flex-direction: column; align-items: flex-start; }
+@media (min-width: 40rem) { .hero__container { display: block; } }
+@media (min-width: 64rem) { .hero__container { display: flex; flex-direction: column; } }
+
+.hero__text { display: flex; max-width: 34rem; flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+@media (min-width: 40rem) { .hero__text { gap: 1.5rem; } }
+@media (min-width: 64rem) { .hero__text { max-width: 50rem; } }
+
+.hero__heading { color: var(--ink); }
+.hero__lead { max-width: 34ch; color: var(--ink); }
+
+.hero__cta-wrap { margin-top: auto; padding-top: 2.5rem; }
+@media (min-width: 40rem) { .hero__cta-wrap { margin-top: 2rem; padding-top: 0; } }
+@media (min-width: 64rem) { .hero__cta-wrap { margin-top: auto; padding-top: 2rem; } }
+
+/* ------------------------------------------------------------------ *
+ * Service
+ * ------------------------------------------------------------------ */
+.service { background: var(--sky-pale); color: var(--ink); padding-top: 4rem; padding-bottom: 5rem; }
+@media (min-width: 48rem) { .service { padding-top: 5rem; padding-bottom: 7rem; } }
+
+.service__grid { display: grid; gap: 2rem; }
+@media (min-width: 48rem) { .service__grid { grid-template-columns: 3fr 2fr; align-items: center; gap: 3rem; } }
+@media (min-width: 64rem) { .service__grid { gap: 4rem; } }
+
+.service__heading { margin-top: 1.25rem; max-width: 16ch; color: var(--ink); }
+.service__text { margin-top: 1.5rem; display: flex; max-width: 44ch; flex-direction: column; gap: 1rem; color: var(--ink-soft); }
+
+.service__media-wrap { max-width: 26rem; }
+@media (min-width: 48rem) { .service__media-wrap { max-width: none; } }
+.service__media {
+  position: relative; aspect-ratio: 5 / 4; overflow: hidden; border-radius: var(--radius);
+  border: 1px solid var(--sky-light); background: var(--paper-raised);
+}
+@media (min-width: 48rem) { .service__media { aspect-ratio: 4 / 3; } }
+.service__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* ------------------------------------------------------------------ *
+ * Projects + carousel
+ * ------------------------------------------------------------------ */
+.projects { background: var(--paper); color: var(--ink); padding-block: 6rem; }
+@media (min-width: 48rem) { .projects { padding-block: 7rem; } }
+@media (min-width: 64rem) { .projects { padding-block: 9rem; } }
+
+.projects__heading-wrap { display: flex; flex-direction: column; gap: 1.25rem; }
+.projects__carousel-wrap { margin-top: 3rem; }
+@media (min-width: 64rem) { .projects__carousel-wrap { margin-top: 4rem; } }
+
+.carousel__track {
+  position: relative; display: flex; overflow-x: auto;
+  scroll-snap-type: x mandatory; gap: 1.25rem;
+  margin-right: -1.5rem; padding-right: 1.5rem; padding-bottom: 0.25rem;
+}
+@media (min-width: 48rem) { .carousel__track { margin-right: -2.5rem; padding-right: 2.5rem; gap: 1.5rem; } }
+@media (min-width: 64rem) { .carousel__track { margin-right: -4rem; padding-right: 4rem; } }
+
+.carousel__item { width: 86%; flex-shrink: 0; scroll-snap-align: start; }
+@media (min-width: 40rem) { .carousel__item { width: 62%; } }
+@media (min-width: 64rem) { .carousel__item { width: 52%; } }
+@media (min-width: 80rem) { .carousel__item { width: 46%; } }
+
+.carousel__frame {
+  position: relative; aspect-ratio: 3 / 2; overflow: hidden; border-radius: var(--radius);
+  border: 1px solid var(--sky-light); background: var(--paper-raised);
+}
+.carousel__frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+.carousel__progress { position: relative; margin-top: 2rem; height: 1px; overflow: hidden; background: var(--line); }
+.carousel__progress-bar { position: absolute; top: 0; bottom: 0; background: var(--sky); transition: left 0.2s ease-out; }
+
+/* ------------------------------------------------------------------ *
+ * Contact / quote form
+ * ------------------------------------------------------------------ */
+.contact { background: var(--sky-strong); color: var(--chalk); padding-top: 6rem; padding-bottom: 6rem; }
+@media (min-width: 48rem) { .contact { padding-top: 7rem; padding-bottom: 7rem; } }
+@media (min-width: 64rem) { .contact { padding-top: 8rem; padding-bottom: 8rem; } }
+
+.contact__layout { display: flex; flex-direction: column; gap: 3rem; }
+@media (min-width: 48rem) { .contact__layout { flex-direction: row; gap: 3.5rem; } }
+@media (min-width: 64rem) { .contact__layout { gap: 5rem; } }
+
+.contact__aside { display: flex; flex-direction: column; gap: 1.25rem; }
+@media (min-width: 48rem) {
+  .contact__aside { order: 2; width: 18rem; flex-shrink: 0; align-self: flex-start; position: sticky; top: 6rem; }
+}
+@media (min-width: 64rem) { .contact__aside { top: 7rem; width: 21rem; } }
+
+.contact__heading { color: var(--chalk); }
+.contact__lead { max-width: 32ch; color: var(--chalk); opacity: 0.9; }
+
+.contact__main { min-width: 0; }
+@media (min-width: 48rem) { .contact__main { order: 1; flex: 1 1 0%; } }
+
+.contact__phone {
+  margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.5rem;
+  border-top: 1px solid rgba(238, 242, 244, 0.15); padding-top: 2rem;
+}
+.contact__phone-label { color: rgba(238, 242, 244, 0.85); }
+.contact__phone-value { color: var(--chalk); text-underline-offset: 4px; transition: color 0.2s; }
+.contact__phone-value:hover { color: var(--sky-light); text-decoration: underline; }
+.contact__phone-note { max-width: 52ch; color: rgba(238, 242, 244, 0.85); }
+
+/* Form */
+#quote-form { display: flex; flex-direction: column; gap: 2.25rem; }
+
+.field-group { display: flex; flex-direction: column; gap: 1.25rem; }
+.field-group__title {
+  display: flex; align-items: center; gap: 0.75rem; color: rgba(238, 242, 244, 0.85);
+}
+.field-group__title span:first-child { flex-shrink: 0; }
+.field-group__rule { height: 1px; flex: 1 1 auto; background: rgba(238, 242, 244, 0.15); }
+
+.field-row { display: grid; gap: 1.25rem; }
+@media (min-width: 40rem) { .field-row { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 48rem) { .field-row { grid-template-columns: 1fr; } }
+@media (min-width: 64rem) { .field-row { grid-template-columns: 1fr 1fr; } }
+
+.field { display: flex; flex-direction: column; gap: 0.5rem; }
+.field__label { display: flex; align-items: baseline; gap: 0.5rem; font-size: var(--text-bodysm); font-weight: 500; color: var(--chalk); }
+.field__optional { font-size: 0.8rem; font-weight: 400; color: rgba(238, 242, 244, 0.85); }
+.field__required-mark { color: var(--sky-mid); }
+.field__hint { margin-top: -0.25rem; font-size: 0.8rem; color: rgba(238, 242, 244, 0.85); }
+.field__error { font-size: var(--text-bodysm); color: var(--danger-soft); }
+
+.control {
+  width: 100%; border-radius: var(--radius); border: 1px solid rgba(238, 242, 244, 0.25);
+  background: rgba(238, 242, 244, 0.06); padding: 0.75rem 1rem; font-size: var(--text-body);
+  color: var(--chalk); transition: border-color 0.2s, background-color 0.2s;
+  font-family: var(--font-body);
+}
+.control::placeholder { color: rgba(238, 242, 244, 0.55); }
+.control:focus-visible { outline: 2px solid var(--sky-mid); outline-offset: 2px; }
+.control:not(.control--error):focus-visible { border-color: var(--sky-mid); }
+.control--error { border-color: var(--danger-soft); }
+textarea.control { min-height: 3.25rem; resize: none; overflow: hidden; }
+
+.radio-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.radio-group__label { font-size: var(--text-bodysm); font-weight: 500; color: var(--chalk); }
+.radio-group__options { display: grid; gap: 0.5rem; }
+@media (min-width: 40rem) { .radio-group__options { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 48rem) { .radio-group__options { grid-template-columns: 1fr; } }
+@media (min-width: 64rem) { .radio-group__options { grid-template-columns: repeat(3, 1fr); } }
+
+.radio-chip {
+  display: flex; align-items: center; justify-content: center; border-radius: var(--radius);
+  border: 1px solid rgba(238, 242, 244, 0.3); padding: 0.625rem 0.75rem; text-align: center;
+  font-size: var(--text-bodysm); color: rgba(238, 242, 244, 0.9); transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+.radio-chip:hover { border-color: rgba(238, 242, 244, 0.55); }
+.radio-chip:focus-within { outline: 2px solid var(--sky-mid); outline-offset: 2px; }
+.radio-chip.is-active { border-color: var(--chalk); background: rgba(238, 242, 244, 0.12); color: var(--chalk); }
+.radio-chip input { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+.form-message {
+  border-left: 2px solid var(--danger-soft); background: rgba(255, 255, 255, 0.05);
+  padding: 0.75rem 1rem; font-size: var(--text-bodysm); color: var(--danger-soft);
+}
+
+.form-submit-wrap { display: flex; flex-direction: column; gap: 0.75rem; }
+.form-disclaimer { color: rgba(238, 242, 244, 0.85); }
+
+.spinner { animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.success-panel {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 1rem;
+  border-radius: var(--radius); border: 1px solid rgba(238, 242, 244, 0.15);
+  background: rgba(238, 242, 244, 0.04); padding: 2rem;
+}
+.success-panel__icon {
+  display: inline-flex; height: 2.5rem; width: 2.5rem; align-items: center; justify-content: center;
+  border-radius: 999px; background: rgba(238, 242, 244, 0.15); color: var(--chalk);
+}
+.success-panel__title { color: var(--chalk); }
+.success-panel__text { max-width: 42ch; color: rgba(238, 242, 244, 0.85); }
+
+/* ------------------------------------------------------------------ *
+ * Footer
+ * ------------------------------------------------------------------ */
+.footer { background: var(--charcoal-deep); color: var(--chalk); }
+.footer__top { display: flex; flex-direction: column; gap: 3rem; padding-block: 4rem; }
+@media (min-width: 48rem) { .footer__top { flex-direction: row; align-items: flex-end; justify-content: space-between; padding-block: 5rem; } }
+.footer__brand { max-width: 30ch; }
+.footer__tagline { margin-top: 1rem; color: var(--chalk-soft); }
+.footer__contact { display: flex; flex-direction: column; gap: 0.75rem; }
+@media (min-width: 48rem) { .footer__contact { align-items: flex-end; } }
+.footer__contact-label { color: var(--chalk-soft); }
+.footer__links { display: flex; flex-direction: column; gap: 0.625rem; }
+@media (min-width: 48rem) { .footer__links { align-items: flex-end; } }
+.footer__links a { color: var(--chalk); text-underline-offset: 4px; transition: color 0.2s; }
+.footer__links a:hover { color: var(--sky-mid); text-decoration: underline; }
+.footer__legal { border-top: 1px solid rgba(238, 242, 244, 0.1); padding-block: 1.5rem; color: var(--chalk-soft); }
+</style>
+</head>
+<body>
+<a href="#inicio" class="skip-link">Saltar al contenido</a>
+
+<!-- ================================================================
+     Header
+     ================================================================ -->
+<header class="header" id="site-header">
+  <div class="header__inner">
+    <a href="#inicio" class="header__logo-link" aria-label="CambioDeTecho — ir al inicio">
+      <span class="wordmark wordmark--ondark">CambioDeTecho<span class="sr-only"> — cambio y reparación de techumbre</span></span>
+    </a>
+
+    <nav aria-label="Principal" class="nav-desktop">
+      <ul>
+        <li><a href="#servicio" class="nav-link" data-nav-link data-section="servicio">Servicio</a></li>
+        <li><a href="#proyectos" class="nav-link" data-nav-link data-section="proyectos">Proyectos</a></li>
+        <li><a href="#contacto" class="nav-link" data-nav-link data-section="contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__right">
+      <span class="header__cta">
+        <a href="#contacto" class="btn btn--inverted btn--header">Cotizar</a>
+      </span>
+
+      <button type="button" id="menu-toggle" class="hamburger" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="sr-only" id="menu-toggle-label">Abrir menú</span>
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true" id="menu-icon-open">
+          <path d="M3 6.5h16M3 15.5h16" stroke="currentColor" stroke-width="1.6" />
+        </svg>
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true" id="menu-icon-close" hidden>
+          <path d="M4 4l14 14M18 4L4 18" stroke="currentColor" stroke-width="1.6" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú principal">
+    <div class="mobile-menu__spacer" aria-hidden="true"></div>
+    <nav aria-label="Principal (móvil)" class="mobile-menu__nav">
+      <ul class="mobile-menu__list">
+        <li><a href="#servicio" class="mobile-menu__link" data-nav-link data-section="servicio" data-close-menu>Servicio</a></li>
+        <li><a href="#proyectos" class="mobile-menu__link" data-nav-link data-section="proyectos" data-close-menu>Proyectos</a></li>
+      </ul>
+      <span class="mobile-menu__cta">
+        <a href="#contacto" class="btn btn--inverted btn--full" data-close-menu>Cotizar</a>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- ================================================================
+       Hero
+       ================================================================ -->
+  <section id="inicio" class="hero">
+    <div class="hero__media">
+      <img
+        src="images/hero/casa-techumbre-cielo-despejado.webp"
+        alt="Vivienda con techumbre nueva bajo un cielo despejado"
+        fetchpriority="high"
+      />
+      <div class="hero__gradient" aria-hidden="true"></div>
+    </div>
+
+    <div class="container hero__container">
+      <div class="hero__text">
+        <div data-reveal>
+          <h1 class="text-display hero__heading">
+            <span style="display:block">Cambiamos tu techo,</span>
+            <span style="display:block"><em class="accent-em">cuidamos</em> tu hogar.</span>
+          </h1>
+        </div>
+        <div data-reveal data-reveal-delay="90">
+          <p class="lead hero__lead">¿Tu techo tiene filtraciones o ya cumplió su vida útil? Te decimos qué necesita.</p>
+        </div>
+      </div>
+
+      <div class="hero__cta-wrap" data-reveal data-reveal-delay="180">
+        <a href="#contacto" class="btn btn--primary btn--full btn--auto-sm">
+          <span>Solicitar cotización</span>
+          <svg class="btn__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M2.5 8h11M9 3.5L13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       Servicio
+       ================================================================ -->
+  <section id="servicio" class="service">
+    <div class="container">
+      <div class="service__grid">
+        <div data-reveal>
+          <div>
+            <span class="label tone-ink-soft">Servicio</span>
+            <h2 class="text-title service__heading">Cambio o reparación, según tu caso</h2>
+            <div class="service__text">
+              <p>Hacemos cambio y reparación de techumbre en todo tipo de techos: reparamos el daño puntual o cambiamos la cubierta completa, cuidando las terminaciones para que se vea bien y dure.</p>
+            </div>
+          </div>
+        </div>
+
+        <div data-reveal data-reveal-delay="80" class="service__media-wrap">
+          <div class="service__media">
+            <img src="images/service/techumbre-tejas-rojas.webp" alt="Techumbre de tejas rojas con lucarna bajo un cielo despejado" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       Proyectos
+       ================================================================ -->
+  <section id="proyectos" class="projects">
+    <div class="container">
+      <div data-reveal>
+        <div class="projects__heading-wrap">
+          <span class="label tone-ink-soft">Proyectos</span>
+          <h2 class="text-title tone-ink">Así queda tu techumbre</h2>
+        </div>
+      </div>
+
+      <div data-reveal>
+        <div class="projects__carousel-wrap">
+          <div role="group" aria-roledescription="carrusel" aria-label="Proyectos de CambioDeTecho">
+            <ul id="carousel-track" class="no-scrollbar carousel__track" tabindex="0" aria-label="Galería de proyectos — desplázate horizontalmente">
+              <li class="carousel__item">
+                <div class="carousel__frame">
+                  <img src="images/projects/01-casa-piedra-porche-madera.webp" alt="Vivienda con techumbre nueva y porche de madera" fetchpriority="high" />
+                </div>
+              </li>
+              <li class="carousel__item">
+                <div class="carousel__frame">
+                  <img src="images/projects/02-casa-moderna-revestimiento-madera.webp" alt="Casa con revestimiento de madera y cubierta nueva" />
+                </div>
+              </li>
+              <li class="carousel__item">
+                <div class="carousel__frame">
+                  <img src="images/projects/03-casa-blanca-gabletes-jardin.webp" alt="Vivienda de campo con techumbre nueva" loading="lazy" />
+                </div>
+              </li>
+              <li class="carousel__item">
+                <div class="carousel__frame">
+                  <img src="images/projects/04-casa-blanca-cuatro-aguas.webp" alt="Techumbre de cuatro aguas reparada" loading="lazy" />
+                </div>
+              </li>
+              <li class="carousel__item">
+                <div class="carousel__frame">
+                  <img src="images/projects/05-casa-revestimiento-gris-cuatro-aguas.webp" alt="Cubierta nueva sobre vivienda de un piso" loading="lazy" />
+                </div>
+              </li>
+              <li class="carousel__item">
+                <div class="carousel__frame">
+                  <img src="images/projects/06-casa-blanca-ventanal-gablete.webp" alt="Encuentro de techumbre y ventanal terminado" loading="lazy" />
+                </div>
+              </li>
+            </ul>
+
+            <div class="carousel__progress" aria-hidden="true">
+              <span id="carousel-progress-bar" class="carousel__progress-bar" style="width:40%;left:0%"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       Contacto / Solicita tu cotización
+       ================================================================ -->
+  <section id="contacto" class="contact">
+    <div class="container">
+      <div class="contact__layout">
+        <div class="contact__aside" data-reveal>
+          <span class="label" style="color:rgba(238,242,244,.85)">Contacto</span>
+          <h2 class="text-title contact__heading">Solicita tu cotización</h2>
+          <p class="lead contact__lead">¿Filtraciones o una techumbre que necesita cambio o reparación? Cuéntanos qué necesitas y dónde, y te contactamos para coordinar una visita.</p>
+        </div>
+
+        <div class="contact__main">
+          <div data-reveal data-reveal-delay="80">
+            <form id="quote-form" novalidate aria-describedby="form-message">
+              <!-- Honeypot — visually hidden, off-screen, ignored by assistive tech -->
+              <div aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;overflow:hidden">
+                <label for="no_rellenar">No completar</label>
+                <input id="no_rellenar" name="no_rellenar" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <div class="field-group" role="group" aria-labelledby="group-datos">
+                <p id="group-datos" class="label field-group__title">
+                  <span>Tus datos</span>
+                  <span class="field-group__rule" aria-hidden="true"></span>
+                </p>
+                <div class="field-row">
+                  <div class="field">
+                    <label class="field__label" for="field-nombre">
+                      <span>Nombre</span>
+                      <span class="field__required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <input class="control" id="field-nombre" name="nombre" type="text" autocomplete="name" aria-required="true" aria-describedby="field-nombre-error" />
+                    <p id="field-nombre-error" class="field__error" role="alert" hidden></p>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="field-telefono">
+                      <span>Teléfono</span>
+                      <span class="field__required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <input class="control" id="field-telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" aria-required="true" aria-describedby="field-telefono-error" />
+                    <p id="field-telefono-error" class="field__error" role="alert" hidden></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field-group" role="group" aria-labelledby="group-trabajo">
+                <p id="group-trabajo" class="label field-group__title">
+                  <span>El trabajo</span>
+                  <span class="field-group__rule" aria-hidden="true"></span>
+                </p>
+
+                <div class="field-row">
+                  <div class="field">
+                    <label class="field__label" for="field-comuna">
+                      <span>Comuna</span>
+                      <span class="field__required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <p class="field__hint">Ej: Ñuñoa, Santiago</p>
+                    <input class="control" id="field-comuna" name="comuna" type="text" autocomplete="address-level2" aria-required="true" aria-describedby="field-comuna-error" />
+                    <p id="field-comuna-error" class="field__error" role="alert" hidden></p>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="field-direccion">
+                      <span class="direccion-label-mobile">Dirección o ubicación del trabajo</span>
+                      <span class="direccion-label-desktop" style="display:none">Ubicación del trabajo</span>
+                      <span class="field__optional">(opcional)</span>
+                    </label>
+                    <p class="field__hint">Calle y número, o el sector / una referencia</p>
+                    <input class="control" id="field-direccion" name="direccion" type="text" autocomplete="street-address" aria-describedby="field-direccion-error" />
+                    <p id="field-direccion-error" class="field__error" role="alert" hidden></p>
+                  </div>
+                </div>
+
+                <div class="radio-group" role="radiogroup" aria-labelledby="field-tipoTrabajo-label" aria-required="true" aria-describedby="field-tipoTrabajo-error">
+                  <span id="field-tipoTrabajo-label" class="radio-group__label">
+                    Tipo de trabajo <span class="field__required-mark" aria-hidden="true">*</span>
+                  </span>
+                  <div class="radio-group__options">
+                    <label class="radio-chip" data-radio-chip>
+                      <input type="radio" name="tipoTrabajo" value="reparacion" />
+                      Reparación
+                    </label>
+                    <label class="radio-chip" data-radio-chip>
+                      <input type="radio" name="tipoTrabajo" value="cambio" />
+                      Cambio de techo
+                    </label>
+                    <label class="radio-chip" data-radio-chip>
+                      <input type="radio" name="tipoTrabajo" value="no-seguro" />
+                      No estoy seguro/a
+                    </label>
+                  </div>
+                  <p id="field-tipoTrabajo-error" class="field__error" role="alert" hidden></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="field-descripcion">
+                    <span>¿Qué necesitas?</span>
+                    <span class="field__optional">(opcional)</span>
+                  </label>
+                  <textarea class="control" id="field-descripcion" name="descripcion" rows="2" placeholder="Filtraciones, planchas sueltas, antigüedad, m² aproximados…" aria-describedby="field-descripcion-error"></textarea>
+                  <p id="field-descripcion-error" class="field__error" role="alert" hidden></p>
+                </div>
+              </div>
+
+              <p id="form-message" class="form-message" role="alert" hidden></p>
+
+              <div class="form-submit-wrap">
+                <button type="submit" id="submit-btn" class="btn btn--inverted btn--full">
+                  <span id="submit-btn-label" style="display:inline-flex;align-items:center;gap:0.625rem">
+                    Solicitar cotización
+                    <svg class="btn__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <path d="M2.5 8h11M9 3.5L13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" />
+                    </svg>
+                  </span>
+                  <span id="submit-btn-loading" style="display:none;align-items:center;gap:0.625rem">
+                    <svg class="spinner" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-opacity="0.3" stroke-width="2" />
+                      <path d="M14 8a6 6 0 0 0-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    Enviando…
+                  </span>
+                </button>
+                <p class="caption form-disclaimer">Usamos tus datos solo para responder tu solicitud. No se comparten con terceros.</p>
+              </div>
+            </form>
+
+            <div id="success-panel" class="success-panel" role="status" tabindex="-1" hidden>
+              <span class="success-panel__icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" />
+                </svg>
+              </span>
+              <h3 class="text-subhead success-panel__title">Gracias, recibimos tu solicitud.</h3>
+              <p class="success-panel__text">Revisamos lo que nos enviaste y te contactamos para coordinar una visita.</p>
+            </div>
+          </div>
+
+          <div data-reveal data-reveal-delay="120">
+            <div class="contact__phone">
+              <span class="label contact__phone-label">¿Quieres llamar?</span>
+              <a href="tel:+56900000000" class="text-subhead contact__phone-value">[+56 9 0000 0000]</a>
+              <p class="text-bodysm contact__phone-note">Si prefieres, llámanos para coordinar el trabajo o agendar una revisión de tu techo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================================================================
+     Footer
+     ================================================================ -->
+<footer class="footer">
+  <div class="container footer__top">
+    <div class="footer__brand">
+      <span class="wordmark wordmark--ondark">CambioDeTecho<span class="sr-only"> — cambio y reparación de techumbre</span></span>
+      <p class="text-bodysm footer__tagline" style="font-size:var(--text-body);line-height:var(--text-body-lh)">Cambio y reparación de techumbre.</p>
+    </div>
+    <div class="footer__contact">
+      <span class="label footer__contact-label">Contacto</span>
+      <ul class="footer__links">
+        <li><a href="mailto:correo@cambiodetecho.cl">[correo@cambiodetecho.cl]</a></li>
+        <li><a href="tel:+56900000000">[+56 9 0000 0000]</a></li>
+        <li><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">[@cambiodetecho]</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container caption footer__legal">
+    <span id="footer-year"></span> — CambioDeTecho — Contenido preliminar.
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ================================================================
+   * Footer year
+   * ================================================================ */
+  document.getElementById("footer-year").textContent = "© " + new Date().getFullYear();
+
+  /* ================================================================
+   * Header: scroll shadow + active-section tracking
+   * ================================================================ */
+  var header = document.getElementById("site-header");
+  function onScroll() {
+    header.classList.toggle("is-scrolled", window.scrollY > 8);
+  }
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  var sectionIds = ["servicio", "proyectos", "contacto"];
+  var navLinks = document.querySelectorAll("[data-nav-link]");
+  var sectionTargets = sectionIds
+    .map(function (id) { return document.getElementById(id); })
+    .filter(Boolean);
+
+  if (sectionTargets.length && "IntersectionObserver" in window) {
+    var visible = new Set();
+    var sectionObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) visible.add(entry.target.id);
+          else visible.delete(entry.target.id);
+        });
+        var current = sectionIds.find(function (id) { return visible.has(id); });
+        if (current) {
+          navLinks.forEach(function (link) {
+            var isActive = link.getAttribute("data-section") === current;
+            link.classList.toggle("is-active", isActive);
+            if (isActive) link.setAttribute("aria-current", "true");
+            else link.removeAttribute("aria-current");
+          });
+        }
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+    sectionTargets.forEach(function (t) { sectionObserver.observe(t); });
+  }
+
+  /* ================================================================
+   * Mobile menu: open/close, focus trap, Escape, body scroll lock
+   * ================================================================ */
+  var menuToggle = document.getElementById("menu-toggle");
+  var menuToggleLabel = document.getElementById("menu-toggle-label");
+  var menuIconOpen = document.getElementById("menu-icon-open");
+  var menuIconClose = document.getElementById("menu-icon-close");
+  var mobileMenu = document.getElementById("mobile-menu");
+  var menuOpen = false;
+  var bodyOverflow = "";
+
+  function focusables() {
+    return Array.prototype.slice
+      .call(header.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'))
+      .filter(function (el) { return el.offsetParent !== null; });
+  }
+
+  function onKeydown(e) {
+    if (e.key === "Escape") { closeMenu(); return; }
+    if (e.key !== "Tab") return;
+    var items = focusables();
+    if (!items.length) return;
+    var first = items[0];
+    var last = items[items.length - 1];
+    var active = document.activeElement;
+    if (e.shiftKey && (active === first || !header.contains(active))) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && active === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
+  function openMenu() {
+    menuOpen = true;
+    mobileMenu.classList.add("is-open");
+    menuToggle.setAttribute("aria-expanded", "true");
+    menuToggleLabel.textContent = "Cerrar menú";
+    menuIconOpen.hidden = true;
+    menuIconClose.hidden = false;
+    bodyOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKeydown);
+    var firstFocusable = mobileMenu.querySelector("a, button");
+    if (firstFocusable) firstFocusable.focus();
+  }
+
+  function closeMenu() {
+    if (!menuOpen) return;
+    menuOpen = false;
+    mobileMenu.classList.remove("is-open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggleLabel.textContent = "Abrir menú";
+    menuIconOpen.hidden = false;
+    menuIconClose.hidden = true;
+    document.body.style.overflow = bodyOverflow;
+    document.removeEventListener("keydown", onKeydown);
+    menuToggle.focus();
+  }
+
+  menuToggle.addEventListener("click", function () {
+    if (menuOpen) closeMenu(); else openMenu();
+  });
+  mobileMenu.querySelectorAll("[data-close-menu]").forEach(function (el) {
+    el.addEventListener("click", closeMenu);
+  });
+
+  /* ================================================================
+   * Desktop-only label swap for "Dirección o ubicación del trabajo"
+   * ================================================================ */
+  function syncDireccionLabel() {
+    var isDesktop = window.matchMedia("(min-width: 64rem)").matches;
+    document.querySelectorAll(".direccion-label-mobile").forEach(function (el) {
+      el.style.display = isDesktop ? "none" : "inline";
+    });
+    document.querySelectorAll(".direccion-label-desktop").forEach(function (el) {
+      el.style.display = isDesktop ? "inline" : "none";
+    });
+  }
+  syncDireccionLabel();
+  window.addEventListener("resize", syncDireccionLabel);
+
+  /* ================================================================
+   * Scroll reveal — fade + rise on first scroll into view.
+   * ================================================================ */
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reducedMotion && "IntersectionObserver" in window) {
+    document.querySelectorAll("[data-reveal]").forEach(function (node) {
+      if (node.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+      node.classList.add("reveal-hidden");
+      var delay = node.getAttribute("data-reveal-delay");
+      var revealObserver = new IntersectionObserver(
+        function (entries) {
+          if (entries.some(function (entry) { return entry.isIntersecting; })) {
+            if (delay) node.style.animationDelay = delay + "ms";
+            node.classList.remove("reveal-hidden");
+            node.classList.add("reveal-in");
+            revealObserver.disconnect();
+          }
+        },
+        { rootMargin: "0px 0px -8% 0px" }
+      );
+      revealObserver.observe(node);
+    });
+  }
+
+  /* ================================================================
+   * Projects carousel — scroll-position progress bar.
+   * (Swipe/drag/trackpad scrolling itself is native CSS scroll-snap;
+   * this only draws the thin progress indicator underneath.)
+   * ================================================================ */
+  var track = document.getElementById("carousel-track");
+  var bar = document.getElementById("carousel-progress-bar");
+  function updateCarousel() {
+    var max = track.scrollWidth - track.clientWidth;
+    var width = max > 0 ? Math.min(100, (track.clientWidth / track.scrollWidth) * 100) : 100;
+    var frac = max > 0 ? track.scrollLeft / max : 0;
+    var left = frac * (100 - width);
+    bar.style.width = width + "%";
+    bar.style.left = left + "%";
+  }
+  updateCarousel();
+  track.addEventListener("scroll", updateCarousel, { passive: true });
+  window.addEventListener("resize", updateCarousel);
+
+  /* ================================================================
+   * Quote form — validation, submission (local only, no backend).
+   * ================================================================ */
+  var QUOTE_FIELDS = ["nombre", "telefono", "comuna", "direccion", "tipoTrabajo", "descripcion"];
+  var OPTIONAL_FIELDS = ["direccion", "descripcion"];
+  var TIPO_TRABAJO = ["reparacion", "cambio", "no-seguro"];
+  var LIMITS = {
+    nombre: { min: 2, max: 80 },
+    telefono: { min: 6, max: 30 },
+    comuna: { min: 2, max: 80 },
+    direccion: { max: 160 },
+    descripcion: { max: 2000 }
+  };
+  var PHONE_RE = /^[0-9+()\-.\s]{6,30}$/;
+
+  function getValue(field) {
+    if (field === "tipoTrabajo") {
+      var checked = form.querySelector('input[name="tipoTrabajo"]:checked');
+      return checked ? checked.value : "";
+    }
+    var el = document.getElementById("field-" + field);
+    return el ? el.value.trim() : "";
+  }
+
+  function validateField(field) {
+    var value = getValue(field);
+    switch (field) {
+      case "nombre":
+        if (!value) return "Ingresa tu nombre.";
+        if (value.length < LIMITS.nombre.min) return "El nombre es demasiado corto.";
+        if (value.length > LIMITS.nombre.max) return "El nombre es demasiado largo.";
+        return "";
+      case "telefono":
+        if (!value) return "Ingresa un teléfono de contacto.";
+        if (!PHONE_RE.test(value)) return "Ingresa un teléfono válido (solo números y + - ( )).";
+        return "";
+      case "comuna":
+        if (!value) return "Indica la comuna del trabajo.";
+        if (value.length < LIMITS.comuna.min) return "Escribe la comuna.";
+        if (value.length > LIMITS.comuna.max) return "El nombre de la comuna es demasiado largo.";
+        return "";
+      case "direccion":
+        if (value.length > LIMITS.direccion.max) return "La dirección es demasiado larga.";
+        return "";
+      case "tipoTrabajo":
+        if (!value) return "Selecciona el tipo de trabajo.";
+        if (TIPO_TRABAJO.indexOf(value) === -1) return "Selecciona una opción válida.";
+        return "";
+      case "descripcion":
+        if (value.length > LIMITS.descripcion.max) return "La descripción supera el máximo de 2000 caracteres.";
+        return "";
+    }
+    return "";
+  }
+
+  function showFieldError(field, message) {
+    var errorEl = document.getElementById("field-" + field + "-error");
+    var controlEl = field === "tipoTrabajo" ? null : document.getElementById("field-" + field);
+    if (errorEl) {
+      errorEl.textContent = message;
+      errorEl.hidden = !message;
+    }
+    if (controlEl) controlEl.classList.toggle("control--error", !!message);
+  }
+
+  var form = document.getElementById("quote-form");
+  var successPanel = document.getElementById("success-panel");
+  var formMessage = document.getElementById("form-message");
+  var submitBtn = document.getElementById("submit-btn");
+  var submitLabel = document.getElementById("submit-btn-label");
+  var submitLoading = document.getElementById("submit-btn-loading");
+  var touched = {};
+
+  // Live-clear an error as soon as the field becomes valid again.
+  QUOTE_FIELDS.forEach(function (field) {
+    if (field === "tipoTrabajo") {
+      form.querySelectorAll('input[name="tipoTrabajo"]').forEach(function (input) {
+        input.addEventListener("change", function () {
+          form.querySelectorAll("[data-radio-chip]").forEach(function (chip) {
+            chip.classList.toggle("is-active", chip.querySelector("input").checked);
+          });
+          if (touched.tipoTrabajo) showFieldError("tipoTrabajo", validateField("tipoTrabajo"));
+        });
+      });
+      return;
+    }
+    var el = document.getElementById("field-" + field);
+    if (!el) return;
+    el.addEventListener("blur", function () {
+      touched[field] = true;
+      showFieldError(field, validateField(field));
+    });
+    el.addEventListener("input", function () {
+      if (touched[field]) showFieldError(field, validateField(field));
+    });
+  });
+
+  // Auto-growing "¿Qué necesitas?" textarea.
+  var descripcionEl = document.getElementById("field-descripcion");
+  function resizeDescripcion() {
+    if (!descripcionEl.value) { descripcionEl.style.height = ""; return; }
+    descripcionEl.style.height = "auto";
+    descripcionEl.style.height = descripcionEl.scrollHeight + "px";
+  }
+  descripcionEl.addEventListener("input", resizeDescripcion);
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    formMessage.hidden = true;
+
+    var errors = {};
+    QUOTE_FIELDS.forEach(function (field) {
+      touched[field] = true;
+      var message = validateField(field);
+      if (message) errors[field] = message;
+      showFieldError(field, message);
+    });
+
+    var firstInvalid = QUOTE_FIELDS.find(function (field) { return errors[field]; });
+    if (firstInvalid) {
+      var target = firstInvalid === "tipoTrabajo"
+        ? form.querySelector('input[name="tipoTrabajo"]')
+        : document.getElementById("field-" + firstInvalid);
+      if (target) target.focus();
+      return;
+    }
+
+    // Static site — there is no server behind this page to POST to.
+    // Mirror a brief round-trip, then show the confirmation. Before relying
+    // on this for real leads, wire up an actual delivery method (email, a
+    // CRM webhook, or a static-forms service) here.
+    submitBtn.disabled = true;
+    submitLabel.style.display = "none";
+    submitLoading.style.display = "inline-flex";
+
+    setTimeout(function () {
+      try {
+        form.hidden = true;
+        successPanel.hidden = false;
+        successPanel.focus();
+      } catch (err) {
+        formMessage.textContent = "No pudimos procesar tu solicitud. Inténtalo nuevamente en unos minutos.";
+        formMessage.hidden = false;
+        submitBtn.disabled = false;
+        submitLabel.style.display = "inline-flex";
+        submitLoading.style.display = "none";
+      }
+    }, 500);
+  });
+})();
+</script>
+</body>
+</html>
